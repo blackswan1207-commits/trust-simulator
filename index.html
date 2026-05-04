@@ -610,6 +610,31 @@ function update() {
   document.getElementById(id).addEventListener('input', update);
 });
 
+// ── Touch: auto-dismiss tooltip ────────────────────────────────
+(function() {
+  const canvas = document.getElementById('myChart');
+  let dismissTimer = null;
+
+  function hideTooltip() {
+    chart.tooltip.setActiveElements([], {x: 0, y: 0});
+    chart.update('none');
+  }
+
+  // Auto-dismiss 2.5s after finger lifts off the chart
+  canvas.addEventListener('touchend', () => {
+    clearTimeout(dismissTimer);
+    dismissTimer = setTimeout(hideTooltip, 2500);
+  });
+
+  // Immediate dismiss when tapping anywhere outside the chart
+  document.addEventListener('touchstart', (e) => {
+    if (!canvas.contains(e.target)) {
+      clearTimeout(dismissTimer);
+      hideTooltip();
+    }
+  });
+})();
+
 // Initial render
 update();
 </script>
