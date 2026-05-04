@@ -9,6 +9,8 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+  html { font-size: 18px; }
+
   body {
     font-family: 'Noto Sans TC', system-ui, sans-serif;
     background: #f8f9fa;
@@ -64,15 +66,15 @@
     justify-content: space-between;
   }
   .slider-label {
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 500;
     color: #444;
   }
   .slider-value {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: #3b5998;
-    min-width: 90px;
+    min-width: 110px;
     text-align: right;
   }
   .slider-track-row {
@@ -93,16 +95,16 @@
   input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 18px;
-    height: 18px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
     background: #3b5998;
     cursor: pointer;
     box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   }
   input[type="range"]::-moz-range-thumb {
-    width: 18px;
-    height: 18px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
     background: #3b5998;
     cursor: pointer;
@@ -133,17 +135,17 @@
     text-align: center;
   }
   .summary-card .s-label {
-    font-size: 0.75rem;
+    font-size: 0.82rem;
     color: #888;
     margin-bottom: 8px;
-    line-height: 1.3;
-    min-height: 32px;
+    line-height: 1.35;
+    min-height: 38px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
   .summary-card .s-value {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     font-weight: 700;
   }
   .color-green  { color: #27ae60; }
@@ -161,7 +163,7 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    font-size: 0.82rem;
+    font-size: 0.9rem;
     color: #444;
   }
   .legend-swatch {
@@ -184,12 +186,12 @@
   table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.85rem;
+    font-size: 0.95rem;
   }
   thead th {
     background: #3b5998;
     color: #fff;
-    padding: 9px 10px;
+    padding: 11px 12px;
     text-align: center;
     font-weight: 500;
     white-space: nowrap;
@@ -199,7 +201,7 @@
   tbody tr:nth-child(even) { background: #f8f9fa; }
   tbody tr:nth-child(odd)  { background: #fff; }
   tbody td {
-    padding: 8px 10px;
+    padding: 10px 12px;
     text-align: center;
     border-bottom: 1px solid #eee;
     white-space: nowrap;
@@ -414,7 +416,7 @@ const reserveLinePlugin = {
     c.stroke();
     c.setLineDash([]);
     c.fillStyle = '#999';
-    c.font = `bold 11px 'Noto Sans TC', system-ui`;
+    c.font = `bold 13px 'Noto Sans TC', system-ui`;
     c.textBaseline = 'bottom';
     c.fillText(`保留目標 ${reserveWan.toLocaleString('zh-TW')} 萬`, x.left + 6, yPx - 3);
     c.restore();
@@ -463,7 +465,7 @@ const chart = new Chart(ctx, {
     scales: {
       x: {
         ticks: {
-          font: { family: "'Noto Sans TC', system-ui, sans-serif", size: 11 },
+          font: { family: "'Noto Sans TC', system-ui, sans-serif", size: 13 },
           maxRotation: 45,
           autoSkip: false,
         },
@@ -472,7 +474,7 @@ const chart = new Chart(ctx, {
       y: {
         min: 0,
         ticks: {
-          font: { family: "'Noto Sans TC', system-ui, sans-serif", size: 11 },
+          font: { family: "'Noto Sans TC', system-ui, sans-serif", size: 13 },
           callback: v => v.toLocaleString('zh-TW') + ' 萬',
         },
         grid: { color: '#f0f0f0' }
