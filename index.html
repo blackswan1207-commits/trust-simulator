@@ -89,8 +89,8 @@
   .sub-rate-value { font-size: 0.95rem; font-weight: 700; color: #3b5998; min-width: 46px; text-align: right; }
 
   /* Blended rate badge */
-  .blend-badge { text-align: center; font-size: 0.8rem; color: #888; }
-  .blend-badge strong { color: #3b5998; font-size: 0.9rem; }
+  .blend-badge { text-align: center; font-size: 0.88rem; color: #666; }
+  .blend-badge strong { color: #3b5998; font-size: 1.25rem; font-weight: 700; }
 
   /* Summary cards */
   .summary-grid {
@@ -269,7 +269,7 @@
         <thead>
           <tr>
             <th>年底</th>
-            <th>基金2%</th><th>基金3%</th><th>基金4%</th><th>基金5%</th><th>基金6%</th><th>基金7%</th>
+            <th>2%</th><th>3%</th><th>4%</th><th>5%</th><th>6%</th><th>7%</th>
           </tr>
         </thead>
         <tbody id="table-body"></tbody>
@@ -369,7 +369,7 @@ const reserveLinePlugin = {
 const ctx = document.getElementById('myChart').getContext('2d');
 
 const datasets = RATES.map((r, i) => ({
-  label: `基金${r}%`,
+  label: `${r}%`,
   data: [],
   borderColor: LINE_STYLES[i].color,
   backgroundColor: 'transparent',
@@ -435,7 +435,7 @@ function buildLegend() {
       : `background: ${s.color}`;
     return `<span class="legend-item">
       <span class="legend-swatch" style="${dashStyle}"></span>
-      <span>基金 ${r}%</span>
+      <span>${r}%</span>
     </span>`;
   }).join('');
 }
@@ -478,9 +478,9 @@ function update() {
     `第${i+1}年\n${currentAge + i + 1}歲`
   );
 
-  // 6 scenarios：基金報酬率 2%～7%，存款報酬率固定
+  // 6 條曲線：綜合報酬率 2%～7% 套用在總本金（配置僅決定綜合報酬率，曲線跟著走）
   const allSeries = RATES.map(r =>
-    calcSeriesWithAlloc(depositAmt, depositRate, fundAmt, r, annualExpense)
+    calcSeries(principal, annualExpense, r)
   );
 
   // Update chart
@@ -490,8 +490,8 @@ function update() {
   });
   chart.update();
 
-  // Summary cards：依使用者選定基金報酬率計算
-  const selSeries = calcSeriesWithAlloc(depositAmt, depositRate, fundAmt, fundRate, annualExpense);
+  // Summary cards：依當前綜合報酬率計算
+  const selSeries = calcSeries(principal, annualExpense, blended);
   const y10 = selSeries[9];
   const y15 = selSeries[14];
 
