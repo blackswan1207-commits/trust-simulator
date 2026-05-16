@@ -13,67 +13,71 @@
     font-family: 'Noto Sans TC', system-ui, sans-serif;
     background: #f8f9fa;
     color: #2d2d2d;
-    padding: 24px 16px 48px;
+    padding: 20px 16px 48px;
     min-height: 100vh;
   }
-  .wrapper { max-width: 860px; margin: 0 auto; }
+  .wrapper { max-width: 1100px; margin: 0 auto; }
 
   /* Header */
-  .page-header { text-align: center; margin-bottom: 28px; }
-  .page-header h1 { font-size: 1.75rem; font-weight: 700; color: #3b5998; margin-bottom: 6px; }
-  .page-header p { font-size: 0.92rem; color: #666; }
+  .page-header { text-align: center; margin-bottom: 24px; }
+  .page-header h1 { font-size: 1.6rem; font-weight: 700; color: #3b5998; margin-bottom: 4px; }
+  .page-header p { font-size: 0.88rem; color: #666; }
+
+  /* ── Two-column main layout ── */
+  .main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+    align-items: start;
+  }
+  @media (max-width: 720px) {
+    .main-grid { grid-template-columns: 1fr; }
+  }
+  .col-left, .col-right { display: flex; flex-direction: column; gap: 14px; }
 
   /* Card */
-  .card { background: #fff; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); padding: 24px; margin-bottom: 20px; }
+  .card { background: #fff; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); padding: 20px; }
 
   /* Sliders */
-  .slider-group { display: flex; flex-direction: column; gap: 22px; }
-  .slider-row { display: flex; flex-direction: column; gap: 6px; }
+  .slider-group { display: flex; flex-direction: column; gap: 18px; }
+  .slider-row { display: flex; flex-direction: column; gap: 5px; }
   .slider-label-row { display: flex; align-items: center; justify-content: space-between; }
   .slider-label { font-size: 1rem; font-weight: 500; color: #444; }
-  .slider-value { font-size: 1.1rem; font-weight: 700; color: #3b5998; min-width: 110px; text-align: right; }
-  .slider-track-row { display: flex; align-items: center; gap: 12px; }
+  .slider-value { font-size: 1.05rem; font-weight: 700; color: #3b5998; min-width: 100px; text-align: right; }
+  .slider-track-row { display: flex; align-items: center; gap: 10px; }
 
   input[type="range"] {
-    flex: 1;
-    -webkit-appearance: none; appearance: none;
-    height: 5px; border-radius: 3px; background: #d0d7e8;
-    outline: none; cursor: pointer;
+    flex: 1; -webkit-appearance: none; appearance: none;
+    height: 5px; border-radius: 3px; background: #d0d7e8; outline: none; cursor: pointer;
   }
   input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none; appearance: none;
     width: 24px; height: 24px; border-radius: 50%;
-    background: #3b5998; cursor: pointer;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    background: #3b5998; cursor: pointer; box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   }
   input[type="range"]::-moz-range-thumb {
     width: 24px; height: 24px; border-radius: 50%;
-    background: #3b5998; cursor: pointer;
-    border: none; box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    background: #3b5998; cursor: pointer; border: none; box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   }
-  .slider-sub { font-size: 0.8rem; color: #888; margin-top: 2px; }
+  .slider-sub { font-size: 0.78rem; color: #888; margin-top: 1px; }
 
   /* Allocation box */
   .alloc-box {
-    background: #f4f6fb;
-    border-radius: 6px;
-    padding: 16px;
-    border: 1px solid #dde3f0;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
+    background: #f4f6fb; border-radius: 6px;
+    padding: 14px; border: 1px solid #dde3f0;
+    display: flex; flex-direction: column; gap: 12px;
   }
-  .alloc-title { font-size: 0.78rem; color: #999; text-align: center; font-weight: 500; }
+  .alloc-title { font-size: 0.76rem; color: #999; text-align: center; font-weight: 500; }
   .alloc-divider { border: none; border-top: 1px dashed #c8d0e4; margin: 0; }
-  .alloc-section { display: flex; flex-direction: column; gap: 8px; }
+  .alloc-section { display: flex; flex-direction: column; gap: 7px; }
   .alloc-head { display: flex; align-items: center; justify-content: space-between; }
   .alloc-label { font-size: 1rem; font-weight: 600; color: #3b5998; }
-  .alloc-amount { font-size: 1.1rem; font-weight: 700; color: #2d2d2d; }
-  .alloc-auto { font-size: 0.72rem; color: #aaa; margin-left: 5px; font-weight: 400; }
+  .alloc-amount { font-size: 1.05rem; font-weight: 700; color: #2d2d2d; }
+  .alloc-auto { font-size: 0.7rem; color: #aaa; margin-left: 4px; font-weight: 400; }
 
-  /* Sub-rate row (smaller slider inside alloc-box) */
-  .sub-rate-row { display: flex; align-items: center; gap: 10px; }
-  .sub-rate-label { font-size: 0.82rem; color: #666; white-space: nowrap; min-width: 76px; }
+  .sub-rate-row { display: flex; align-items: center; gap: 8px; }
+  .sub-rate-label { font-size: 0.82rem; color: #666; white-space: nowrap; min-width: 72px; }
   .sub-slider { flex: 1; height: 4px !important; }
   .sub-slider::-webkit-slider-thumb {
     -webkit-appearance: none; appearance: none;
@@ -86,49 +90,46 @@
     border-radius: 50%; background: #3b5998; cursor: pointer;
     border: none; box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   }
-  .sub-rate-value { font-size: 0.95rem; font-weight: 700; color: #3b5998; min-width: 46px; text-align: right; }
+  .sub-rate-value { font-size: 0.92rem; font-weight: 700; color: #3b5998; min-width: 44px; text-align: right; }
 
   /* Blended rate badge */
-  .blend-badge { text-align: center; font-size: 0.88rem; color: #666; }
-  .blend-badge strong { color: #3b5998; font-size: 1.25rem; font-weight: 700; }
+  .blend-badge { text-align: center; font-size: 0.82rem; color: #666; padding: 2px 0; }
+  .blend-badge strong { color: #3b5998; font-size: 1.3rem; font-weight: 700; }
 
   /* Summary cards */
   .summary-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-    margin-bottom: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
-  @media (max-width: 600px) { .summary-grid { grid-template-columns: repeat(2, 1fr); } }
-  .summary-card { background: #fff; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); padding: 16px 12px; text-align: center; }
-  .summary-card .s-label { font-size: 0.82rem; color: #888; margin-bottom: 8px; line-height: 1.35; min-height: 38px; display: flex; align-items: center; justify-content: center; }
-  .summary-card .s-value { font-size: 1.3rem; font-weight: 700; }
+  .summary-card { background: #fff; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); padding: 14px 10px; text-align: center; }
+  .summary-card .s-label { font-size: 0.78rem; color: #888; margin-bottom: 6px; line-height: 1.3; min-height: 32px; display: flex; align-items: center; justify-content: center; }
+  .summary-card .s-value { font-size: 1.2rem; font-weight: 700; }
   .color-green  { color: #27ae60; }
   .color-orange { color: #e67e22; }
   .color-red    { color: #c0392b; }
 
   /* Chart legend */
-  .chart-legend { display: flex; flex-wrap: wrap; gap: 10px 18px; margin-bottom: 14px; }
-  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.9rem; color: #444; }
-  .legend-swatch { width: 28px; height: 3px; border-radius: 2px; flex-shrink: 0; }
+  .chart-legend { display: flex; flex-wrap: wrap; gap: 8px 14px; margin-bottom: 10px; }
+  .legend-item { display: flex; align-items: center; gap: 5px; font-size: 0.82rem; color: #444; }
+  .legend-swatch { width: 26px; height: 3px; border-radius: 2px; flex-shrink: 0; }
 
   /* Chart container */
-  .chart-container { position: relative; height: 320px; }
+  .chart-container { position: relative; height: 280px; }
 
-  /* Table */
+  /* Table (full width below) */
   .table-wrap { overflow-x: auto; }
-  table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
-  thead th { background: #3b5998; color: #fff; padding: 11px 12px; text-align: center; font-weight: 500; white-space: nowrap; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+  thead th { background: #3b5998; color: #fff; padding: 10px 12px; text-align: center; font-weight: 500; white-space: nowrap; }
   thead th:first-child { text-align: left; border-radius: 4px 0 0 0; }
   thead th:last-child  { border-radius: 0 4px 0 0; }
   tbody tr:nth-child(even) { background: #f8f9fa; }
   tbody tr:nth-child(odd)  { background: #fff; }
-  tbody td { padding: 10px 12px; text-align: center; border-bottom: 1px solid #eee; white-space: nowrap; }
+  tbody td { padding: 9px 12px; text-align: center; border-bottom: 1px solid #eee; white-space: nowrap; }
   tbody td:first-child { text-align: left; font-weight: 500; }
-  .row-age { font-size: 0.78rem; font-weight: 400; color: #888; margin-left: 3px; }
+  .row-age { font-size: 0.75rem; font-weight: 400; color: #888; margin-left: 3px; }
 
-  /* Footer note */
-  .footnote { font-size: 0.78rem; color: #999; text-align: center; line-height: 1.6; margin-top: 20px; }
+  .footnote { font-size: 0.76rem; color: #999; text-align: center; line-height: 1.6; margin-top: 16px; }
 </style>
 </head>
 <body>
@@ -140,136 +141,148 @@
     <p>調整下方參數，即時查看不同情境下的資金走勢</p>
   </div>
 
-  <!-- Controls -->
-  <div class="card">
-    <div class="slider-group">
+  <!-- Main two-column layout -->
+  <div class="main-grid">
 
-      <!-- 客戶目前年齡 -->
-      <div class="slider-row">
-        <div class="slider-label-row">
-          <span class="slider-label">客戶目前年齡</span>
-          <span class="slider-value" id="val-age">65 歲</span>
+    <!-- LEFT: Controls -->
+    <div class="col-left">
+      <div class="card">
+        <div class="slider-group">
+
+          <!-- 客戶目前年齡 -->
+          <div class="slider-row">
+            <div class="slider-label-row">
+              <span class="slider-label">客戶目前年齡</span>
+              <span class="slider-value" id="val-age">65 歲</span>
+            </div>
+            <div class="slider-track-row">
+              <input type="range" id="sl-age" min="50" max="90" step="1" value="65">
+            </div>
+            <div class="slider-sub" id="age-range-label">第 1 年（66 歲）～ 第 15 年（80 歲）</div>
+          </div>
+
+          <!-- 信託本金 -->
+          <div class="slider-row">
+            <div class="slider-label-row">
+              <span class="slider-label">信託本金</span>
+              <span class="slider-value" id="val-principal">1,500 萬</span>
+            </div>
+            <div class="slider-track-row">
+              <input type="range" id="sl-principal" min="1000" max="3000" step="50" value="1500">
+            </div>
+          </div>
+
+          <!-- 資金配置 -->
+          <div class="alloc-box">
+            <div class="alloc-title">資金配置（存款 ＋ 基金標的 ＝ 信託本金）</div>
+
+            <!-- 存款 -->
+            <div class="alloc-section">
+              <div class="alloc-head">
+                <span class="alloc-label">存款</span>
+                <span class="alloc-amount" id="val-deposit">1,500 萬</span>
+              </div>
+              <div class="slider-track-row">
+                <input type="range" id="sl-deposit" min="0" max="1500" step="50" value="1500">
+              </div>
+              <div class="sub-rate-row">
+                <span class="sub-rate-label">存款報酬率</span>
+                <input type="range" id="sl-deposit-rate" min="0.5" max="3" step="0.5" value="1.5" class="sub-slider">
+                <span class="sub-rate-value" id="val-deposit-rate">1.5%</span>
+              </div>
+            </div>
+
+            <hr class="alloc-divider">
+
+            <!-- 基金標的 -->
+            <div class="alloc-section">
+              <div class="alloc-head">
+                <span class="alloc-label">基金標的<span class="alloc-auto">（自動計算）</span></span>
+                <span class="alloc-amount" id="val-fund">0 萬</span>
+              </div>
+              <div class="sub-rate-row">
+                <span class="sub-rate-label">基金報酬率</span>
+                <input type="range" id="sl-fund-rate" min="2" max="10" step="0.5" value="4" class="sub-slider">
+                <span class="sub-rate-value" id="val-fund-rate">4.0%</span>
+              </div>
+            </div>
+
+            <!-- 綜合報酬率 -->
+            <div class="blend-badge">綜合報酬率：<strong id="blend-rate">1.50%</strong></div>
+          </div>
+
+          <!-- 月支出 -->
+          <div class="slider-row">
+            <div class="slider-label-row">
+              <span class="slider-label">月支出</span>
+              <span class="slider-value" id="val-monthly">12 萬 / 月</span>
+            </div>
+            <div class="slider-track-row">
+              <input type="range" id="sl-monthly" min="10" max="20" step="0.5" value="12">
+            </div>
+            <div class="slider-sub" id="annual-label">年支出：144 萬</div>
+          </div>
+
+          <!-- 保留目標 -->
+          <div class="slider-row">
+            <div class="slider-label-row">
+              <span class="slider-label">信託終止時希望保留</span>
+              <span class="slider-value" id="val-reserve">200 萬</span>
+            </div>
+            <div class="slider-track-row">
+              <input type="range" id="sl-reserve" min="0" max="1000" step="50" value="200">
+            </div>
+            <div class="slider-sub">圖表將在此金額處顯示基準線（設為 0 則隱藏）</div>
+          </div>
+
         </div>
-        <div class="slider-track-row">
-          <input type="range" id="sl-age" min="50" max="90" step="1" value="65">
+      </div>
+    </div><!-- /col-left -->
+
+    <!-- RIGHT: Summary + Chart -->
+    <div class="col-right">
+
+      <!-- Summary cards (2×2) -->
+      <div class="summary-grid">
+        <div class="summary-card">
+          <div class="s-label">第 10 年底餘額</div>
+          <div class="s-value" id="s-y10">—</div>
         </div>
-        <div class="slider-sub" id="age-range-label">第 1 年（66 歲）～ 第 15 年（80 歲）</div>
+        <div class="summary-card">
+          <div class="s-label">第 15 年底餘額</div>
+          <div class="s-value" id="s-y15">—</div>
+        </div>
+        <div class="summary-card">
+          <div class="s-label">資金可撐年限</div>
+          <div class="s-value" id="s-years">—</div>
+        </div>
+        <div class="summary-card">
+          <div class="s-label" id="s-reserve-label">第 15 年底<br>超出保留目標</div>
+          <div class="s-value" id="s-caregiver">—</div>
+        </div>
       </div>
 
-      <!-- 信託本金 -->
-      <div class="slider-row">
-        <div class="slider-label-row">
-          <span class="slider-label">信託本金</span>
-          <span class="slider-value" id="val-principal">1,500 萬</span>
-        </div>
-        <div class="slider-track-row">
-          <input type="range" id="sl-principal" min="1000" max="3000" step="50" value="1500">
+      <!-- Chart -->
+      <div class="card">
+        <div class="chart-legend" id="chart-legend"></div>
+        <div class="chart-container">
+          <canvas id="myChart"></canvas>
         </div>
       </div>
 
-      <!-- 資金配置 -->
-      <div class="alloc-box">
-        <div class="alloc-title">資金配置（存款 ＋ 基金標的 ＝ 信託本金）</div>
+    </div><!-- /col-right -->
+  </div><!-- /main-grid -->
 
-        <!-- 存款 -->
-        <div class="alloc-section">
-          <div class="alloc-head">
-            <span class="alloc-label">存款</span>
-            <span class="alloc-amount" id="val-deposit">1,500 萬</span>
-          </div>
-          <div class="slider-track-row">
-            <input type="range" id="sl-deposit" min="0" max="1500" step="50" value="1500">
-          </div>
-          <div class="sub-rate-row">
-            <span class="sub-rate-label">存款報酬率</span>
-            <input type="range" id="sl-deposit-rate" min="0.5" max="3" step="0.5" value="1.5" class="sub-slider">
-            <span class="sub-rate-value" id="val-deposit-rate">1.5%</span>
-          </div>
-        </div>
-
-        <hr class="alloc-divider">
-
-        <!-- 基金標的（自動） -->
-        <div class="alloc-section">
-          <div class="alloc-head">
-            <span class="alloc-label">基金標的<span class="alloc-auto">（自動計算）</span></span>
-            <span class="alloc-amount" id="val-fund">0 萬</span>
-          </div>
-          <div class="sub-rate-row">
-            <span class="sub-rate-label">基金報酬率</span>
-            <input type="range" id="sl-fund-rate" min="2" max="10" step="0.5" value="4" class="sub-slider">
-            <span class="sub-rate-value" id="val-fund-rate">4.0%</span>
-          </div>
-          <div class="slider-sub">摘要指標依此報酬率計算；圖表同時顯示基金 2%～7% 六種情境</div>
-        </div>
-
-        <!-- 綜合報酬率 -->
-        <div class="blend-badge">綜合報酬率：<strong id="blend-rate">1.50%</strong></div>
-      </div>
-
-      <!-- 月支出 -->
-      <div class="slider-row">
-        <div class="slider-label-row">
-          <span class="slider-label">月支出</span>
-          <span class="slider-value" id="val-monthly">12 萬 / 月</span>
-        </div>
-        <div class="slider-track-row">
-          <input type="range" id="sl-monthly" min="10" max="20" step="0.5" value="12">
-        </div>
-        <div class="slider-sub" id="annual-label">年支出：144 萬</div>
-      </div>
-
-      <!-- 保留目標金額 -->
-      <div class="slider-row">
-        <div class="slider-label-row">
-          <span class="slider-label">信託終止時希望保留</span>
-          <span class="slider-value" id="val-reserve">200 萬</span>
-        </div>
-        <div class="slider-track-row">
-          <input type="range" id="sl-reserve" min="0" max="1000" step="50" value="200">
-        </div>
-        <div class="slider-sub">圖表將在此金額處顯示基準線（設為 0 則隱藏）</div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Summary cards -->
-  <div class="summary-grid">
-    <div class="summary-card">
-      <div class="s-label">第 10 年底餘額</div>
-      <div class="s-value" id="s-y10">—</div>
-    </div>
-    <div class="summary-card">
-      <div class="s-label">第 15 年底餘額</div>
-      <div class="s-value" id="s-y15">—</div>
-    </div>
-    <div class="summary-card">
-      <div class="s-label">資金可撐年限</div>
-      <div class="s-value" id="s-years">—</div>
-    </div>
-    <div class="summary-card">
-      <div class="s-label" id="s-reserve-label">第 15 年底<br>超出保留目標</div>
-      <div class="s-value" id="s-caregiver">—</div>
-    </div>
-  </div>
-
-  <!-- Chart -->
-  <div class="card">
-    <div class="chart-legend" id="chart-legend"></div>
-    <div class="chart-container">
-      <canvas id="myChart"></canvas>
-    </div>
-  </div>
-
-  <!-- Table -->
-  <div class="card">
+  <!-- Table (full width) -->
+  <div class="card" style="margin-bottom:16px;">
     <div class="table-wrap">
       <table id="detail-table">
         <thead>
           <tr>
             <th>年底</th>
-            <th>2%</th><th>3%</th><th>4%</th><th>5%</th><th>6%</th><th>7%</th>
+            <th id="th-r0">—</th>
+            <th id="th-r1">—</th>
+            <th id="th-r2">—</th>
           </tr>
         </thead>
         <tbody id="table-body"></tbody>
@@ -278,7 +291,7 @@
   </div>
 
   <div class="footnote">
-    每年底餘額 = 存款部分 × (1＋存款報酬率) ＋ 基金部分 × (1＋基金報酬率) − 年支出，提領依當年兩部分佔比分配。<br>
+    每年底餘額 = 本金 × (1＋綜合報酬率) − 年支出。三條曲線依序為當前綜合報酬率、＋1%、＋2%。<br>
     「信託終止時希望保留」為客戶自訂目標，圖表水平虛線即為此金額之資金水位基準線。
   </div>
 
@@ -286,43 +299,28 @@
 
 <script>
 // ── Constants ──────────────────────────────────────────────────
-const RATES = [2, 3, 4, 5, 6, 7];   // 基金報酬率情境
 const YEARS = 15;
 let reserveWan   = 200;
-let depositRatio = 1.0;   // 存款佔信託本金比例（0～1），隨存款滑桿更新
+let depositRatio = 1.0;
 
-const LINE_STYLES = [
-  { color: '#e74c3c', dash: []         },
-  { color: '#e67e22', dash: [6,3]      },
-  { color: '#3b5998', dash: []         },
-  { color: '#27ae60', dash: [4,4]      },
-  { color: '#8e44ad', dash: [8,3,2,3]  },
-  { color: '#16a085', dash: [2,2]      },
+// 3 條曲線的樣式：主線（粗實線）、+1%（中虛線）、+2%（細點線）
+const CURVE_STYLES = [
+  { color: '#3b5998', dash: [],        width: 3,   pointR: 3.5 },
+  { color: '#27ae60', dash: [7,3],     width: 2,   pointR: 2.5 },
+  { color: '#e67e22', dash: [3,3],     width: 1.8, pointR: 2   },
 ];
 
 // ── Helpers ────────────────────────────────────────────────────
-// 分開計算存款 + 基金的複利成長，提領依比例分配
-function calcSeriesWithAlloc(depositAmt, depositRatePct, fundAmt, fundRatePct, annualExpense) {
-  const rD = depositRatePct / 100;
-  const rF = fundRatePct   / 100;
-  let d = depositAmt, f = fundAmt;
+function calcSeries(principal, annualExpense, ratePercent) {
+  const r = ratePercent / 100;
+  let bal = principal;
   const series = [];
   let exhausted = false;
   for (let y = 1; y <= YEARS; y++) {
     if (exhausted) { series.push(null); continue; }
-    const dGrown     = d * (1 + rD);
-    const fGrown     = f * (1 + rF);
-    const totalBefore = dGrown + fGrown;
-    const totalAfter  = totalBefore - annualExpense;
-    if (totalAfter <= 0) {
-      series.push(0); exhausted = true; d = 0; f = 0;
-    } else {
-      // 按成長後比例分配提領，維持自然漂移
-      const dProp = totalBefore > 0 ? dGrown / totalBefore : 0.5;
-      d = totalAfter * dProp;
-      f = totalAfter * (1 - dProp);
-      series.push(Math.round(totalAfter));
-    }
+    bal = bal * (1 + r) - annualExpense;
+    if (bal <= 0) { bal = 0; series.push(0); exhausted = true; }
+    else { series.push(Math.round(bal)); }
   }
   return series;
 }
@@ -350,12 +348,8 @@ const reserveLinePlugin = {
     if (yPx < y.top || yPx > y.bottom) return;
     c.save();
     c.setLineDash([8, 5]);
-    c.strokeStyle = '#bbb';
-    c.lineWidth = 1.5;
-    c.beginPath();
-    c.moveTo(x.left, yPx);
-    c.lineTo(x.right, yPx);
-    c.stroke();
+    c.strokeStyle = '#bbb'; c.lineWidth = 1.5;
+    c.beginPath(); c.moveTo(x.left, yPx); c.lineTo(x.right, yPx); c.stroke();
     c.setLineDash([]);
     c.fillStyle = '#999';
     c.font = `bold 13px 'Noto Sans TC', system-ui`;
@@ -365,18 +359,18 @@ const reserveLinePlugin = {
   }
 };
 
-// ── Chart setup ────────────────────────────────────────────────
+// ── Chart setup (3 datasets, labels updated dynamically) ──────
 const ctx = document.getElementById('myChart').getContext('2d');
 
-const datasets = RATES.map((r, i) => ({
-  label: `${r}%`,
+const datasets = CURVE_STYLES.map((s, i) => ({
+  label: '',
   data: [],
-  borderColor: LINE_STYLES[i].color,
+  borderColor: s.color,
   backgroundColor: 'transparent',
-  borderDash: LINE_STYLES[i].dash,
-  borderWidth: 2,
-  pointRadius: 2.5,
-  pointHoverRadius: 5,
+  borderDash: s.dash,
+  borderWidth: s.width,
+  pointRadius: s.pointR,
+  pointHoverRadius: 6,
   tension: 0.3,
   spanGaps: false,
 }));
@@ -396,50 +390,42 @@ const chart = new Chart(ctx, {
       legend: { display: false },
       tooltip: {
         callbacks: {
-          label: ctx => {
-            const v = ctx.raw;
+          label: c => {
+            const v = c.raw;
             if (v === null) return null;
-            return ` ${ctx.dataset.label}：${v === 0 ? '耗盡' : v.toLocaleString('zh-TW') + ' 萬'}`;
+            return ` ${c.dataset.label}：${v === 0 ? '耗盡' : v.toLocaleString('zh-TW') + ' 萬'}`;
           }
         }
       }
     },
     scales: {
       x: {
-        ticks: {
-          font: { family: "'Noto Sans TC', system-ui, sans-serif", size: 13 },
-          maxRotation: 45,
-          autoSkip: false,
-        },
+        ticks: { font: { family: "'Noto Sans TC', system-ui, sans-serif", size: 12 }, maxRotation: 45, autoSkip: false },
         grid: { color: '#f0f0f0' }
       },
       y: {
         min: 0,
-        ticks: {
-          font: { family: "'Noto Sans TC', system-ui, sans-serif", size: 13 },
-          callback: v => v.toLocaleString('zh-TW') + ' 萬',
-        },
+        ticks: { font: { family: "'Noto Sans TC', system-ui, sans-serif", size: 12 }, callback: v => v.toLocaleString('zh-TW') + ' 萬' },
         grid: { color: '#f0f0f0' }
       }
     }
   }
 });
 
-// ── Legend ─────────────────────────────────────────────────────
-function buildLegend() {
-  const el = document.getElementById('chart-legend');
-  el.innerHTML = RATES.map((r, i) => {
-    const s = LINE_STYLES[i];
+// ── Legend (dynamic) ───────────────────────────────────────────
+function updateLegend(rates) {
+  const labels = ['當前綜合', '+1%', '+2%'];
+  document.getElementById('chart-legend').innerHTML = rates.map((r, i) => {
+    const s = CURVE_STYLES[i];
     const dashStyle = s.dash.length
-      ? `background: repeating-linear-gradient(90deg, ${s.color} 0, ${s.color} ${s.dash[0]}px, transparent ${s.dash[0]}px, transparent ${s.dash[0] + (s.dash[1] || 3)}px)`
-      : `background: ${s.color}`;
+      ? `background: repeating-linear-gradient(90deg,${s.color} 0,${s.color} ${s.dash[0]}px,transparent ${s.dash[0]}px,transparent ${s.dash[0]+(s.dash[1]||3)}px)`
+      : `background:${s.color}`;
     return `<span class="legend-item">
-      <span class="legend-swatch" style="${dashStyle}"></span>
-      <span>${r}%</span>
+      <span class="legend-swatch" style="${dashStyle};height:${s.width+1}px"></span>
+      <span>${r.toFixed(1)}%（${labels[i]}）</span>
     </span>`;
   }).join('');
 }
-buildLegend();
 
 // ── Main update ────────────────────────────────────────────────
 function update() {
@@ -457,41 +443,54 @@ function update() {
     ? (depositAmt * depositRate + fundAmt * fundRate) / principal
     : depositRate;
 
-  // Slider displays
-  document.getElementById('val-principal').textContent     = principal.toLocaleString('zh-TW') + ' 萬';
-  document.getElementById('val-deposit').textContent       = depositAmt.toLocaleString('zh-TW') + ' 萬';
-  document.getElementById('val-fund').textContent          = fundAmt.toLocaleString('zh-TW') + ' 萬';
-  document.getElementById('val-deposit-rate').textContent  = depositRate.toFixed(1) + '%';
-  document.getElementById('val-fund-rate').textContent     = fundRate.toFixed(1) + '%';
-  document.getElementById('val-monthly').textContent       =
-    (Number.isInteger(monthlyWan) ? monthlyWan : monthlyWan.toFixed(1)) + ' 萬 / 月';
-  document.getElementById('annual-label').textContent      = '年支出：' + annualExpense.toLocaleString('zh-TW') + ' 萬';
-  document.getElementById('val-age').textContent           = currentAge + ' 歲';
-  document.getElementById('age-range-label').textContent   =
-    `第 1 年（${currentAge + 1} 歲）～ 第 ${YEARS} 年（${currentAge + YEARS} 歲）`;
-  document.getElementById('val-reserve').textContent       =
-    reserveWan === 0 ? '不設定' : reserveWan.toLocaleString('zh-TW') + ' 萬';
-  document.getElementById('blend-rate').textContent        = blended.toFixed(2) + '%';
+  // 三條曲線的報酬率
+  const curveRates = [blended, blended + 1, blended + 2];
 
-  // X-axis labels with age
+  // Displays
+  document.getElementById('val-principal').textContent    = principal.toLocaleString('zh-TW') + ' 萬';
+  document.getElementById('val-deposit').textContent      = depositAmt.toLocaleString('zh-TW') + ' 萬';
+  document.getElementById('val-fund').textContent         = fundAmt.toLocaleString('zh-TW') + ' 萬';
+  document.getElementById('val-deposit-rate').textContent = depositRate.toFixed(1) + '%';
+  document.getElementById('val-fund-rate').textContent    = fundRate.toFixed(1) + '%';
+  document.getElementById('val-monthly').textContent      =
+    (Number.isInteger(monthlyWan) ? monthlyWan : monthlyWan.toFixed(1)) + ' 萬 / 月';
+  document.getElementById('annual-label').textContent     = '年支出：' + annualExpense.toLocaleString('zh-TW') + ' 萬';
+  document.getElementById('val-age').textContent          = currentAge + ' 歲';
+  document.getElementById('age-range-label').textContent  =
+    `第 1 年（${currentAge + 1} 歲）～ 第 ${YEARS} 年（${currentAge + YEARS} 歲）`;
+  document.getElementById('val-reserve').textContent      =
+    reserveWan === 0 ? '不設定' : reserveWan.toLocaleString('zh-TW') + ' 萬';
+  document.getElementById('blend-rate').textContent       = blended.toFixed(2) + '%';
+
+  // X-axis labels
   const xLabels = Array.from({length: YEARS}, (_, i) =>
     `第${i+1}年\n${currentAge + i + 1}歲`
   );
 
-  // 6 條曲線：綜合報酬率 2%～7% 套用在總本金（配置僅決定綜合報酬率，曲線跟著走）
-  const allSeries = RATES.map(r =>
-    calcSeries(principal, annualExpense, r)
-  );
+  // 計算 3 條曲線
+  const allSeries = curveRates.map(r => calcSeries(principal, annualExpense, r));
 
-  // Update chart
+  // 更新 dataset label
+  curveRates.forEach((r, i) => {
+    chart.data.datasets[i].label = r.toFixed(1) + '%';
+  });
+
+  // 更新圖表
   chart.data.labels = xLabels;
   allSeries.forEach((s, i) => {
     chart.data.datasets[i].data = s.map(v => (v === null ? null : v));
   });
   chart.update();
+  updateLegend(curveRates);
 
-  // Summary cards：依當前綜合報酬率計算
-  const selSeries = calcSeries(principal, annualExpense, blended);
+  // 更新表頭
+  ['th-r0','th-r1','th-r2'].forEach((id, i) => {
+    const suffix = i === 0 ? '（當前）' : i === 1 ? '（+1%）' : '（+2%）';
+    document.getElementById(id).textContent = curveRates[i].toFixed(1) + '%' + suffix;
+  });
+
+  // Summary cards（依當前綜合報酬率）
+  const selSeries = allSeries[0];
   const y10 = selSeries[9];
   const y15 = selSeries[14];
 
@@ -506,26 +505,22 @@ function update() {
   const exhaustY = getExhaustYear(selSeries);
   const yrsEl = document.getElementById('s-years');
   if (exhaustY === null) {
-    yrsEl.textContent = '15 年以上';
-    yrsEl.className = 's-value color-green';
+    yrsEl.textContent = '15 年以上'; yrsEl.className = 's-value color-green';
   } else {
-    yrsEl.textContent = `約第 ${exhaustY} 年耗盡`;
-    yrsEl.className = 's-value color-red';
+    yrsEl.textContent = `約第 ${exhaustY} 年耗盡`; yrsEl.className = 's-value color-red';
   }
 
   const reserveEl  = document.getElementById('s-caregiver');
   const reserveLbl = document.getElementById('s-reserve-label');
   if (reserveWan === 0) {
     reserveLbl.innerHTML = '保留目標<br>（未設定）';
-    reserveEl.textContent = '—';
-    reserveEl.className = 's-value';
+    reserveEl.textContent = '—'; reserveEl.className = 's-value';
   } else {
     const y15val = (y15 === null || y15 === 0) ? 0 : y15;
     const margin  = y15val - reserveWan;
     reserveLbl.innerHTML = `第 15 年底<br>超出保留目標`;
     if (y15 === null || y15 === 0) {
-      reserveEl.textContent = '耗盡';
-      reserveEl.className = 's-value color-red';
+      reserveEl.textContent = '耗盡'; reserveEl.className = 's-value color-red';
     } else if (margin < 0) {
       reserveEl.textContent = `−${Math.abs(margin).toLocaleString('zh-TW')} 萬`;
       reserveEl.className = 's-value color-red';
@@ -546,33 +541,27 @@ function update() {
       let cls = '';
       if (v === null || v === 0) cls = 'color-red';
       else if (v < 500) cls = 'color-orange';
-      const text = (v === null || v === 0) ? '耗盡' : v.toLocaleString('zh-TW') + ' 萬';
-      return `<td class="${cls}">${text}</td>`;
+      return `<td class="${cls}">${(v === null || v === 0) ? '耗盡' : v.toLocaleString('zh-TW') + ' 萬'}</td>`;
     }).join('');
-    const age = currentAge + yi + 1;
-    return `<tr><td>第 ${yi+1} 年<span class="row-age">（${age} 歲）</span></td>${cells}</tr>`;
+    return `<tr><td>第 ${yi+1} 年<span class="row-age">（${currentAge + yi + 1} 歲）</span></td>${cells}</tr>`;
   }).join('');
 }
 
 // ── Event listeners ────────────────────────────────────────────
-// 信託本金：更新存款滑桿上限，比例不變
 document.getElementById('sl-principal').addEventListener('input', function() {
   const principal = parseInt(this.value);
   const slDep = document.getElementById('sl-deposit');
   const newDeposit = Math.min(Math.round(principal * depositRatio / 50) * 50, principal);
-  slDep.max   = principal;
-  slDep.value = newDeposit;
+  slDep.max = principal; slDep.value = newDeposit;
   update();
 });
 
-// 存款：記錄比例
 document.getElementById('sl-deposit').addEventListener('input', function() {
   const principal = parseInt(document.getElementById('sl-principal').value);
   depositRatio = parseInt(this.value) / principal;
   update();
 });
 
-// 其餘滑桿
 ['sl-deposit-rate', 'sl-fund-rate', 'sl-monthly', 'sl-age', 'sl-reserve'].forEach(id => {
   document.getElementById(id).addEventListener('input', update);
 });
@@ -580,24 +569,12 @@ document.getElementById('sl-deposit').addEventListener('input', function() {
 // ── Touch: auto-dismiss tooltip ────────────────────────────────
 (function() {
   const canvas = document.getElementById('myChart');
-  let dismissTimer = null;
-  function hideTooltip() {
-    chart.tooltip.setActiveElements([], {x: 0, y: 0});
-    chart.update('none');
-  }
-  canvas.addEventListener('touchend', () => {
-    clearTimeout(dismissTimer);
-    dismissTimer = setTimeout(hideTooltip, 2500);
-  });
-  document.addEventListener('touchstart', (e) => {
-    if (!canvas.contains(e.target)) {
-      clearTimeout(dismissTimer);
-      hideTooltip();
-    }
-  });
+  let t = null;
+  function hide() { chart.tooltip.setActiveElements([], {x:0,y:0}); chart.update('none'); }
+  canvas.addEventListener('touchend', () => { clearTimeout(t); t = setTimeout(hide, 2500); });
+  document.addEventListener('touchstart', e => { if (!canvas.contains(e.target)) { clearTimeout(t); hide(); } });
 })();
 
-// Initial render
 update();
 </script>
 </body>
